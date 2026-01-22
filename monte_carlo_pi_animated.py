@@ -12,7 +12,7 @@ import matplotlib.gridspec as gridspec
 from matplotlib.animation import FuncAnimation
 from matplotlib.patches import Circle, Rectangle
 import matplotlib.patheffects as path_effects
-from typing import Callable
+from typing import Optional, Tuple
 
 
 # Configure matplotlib for publication quality
@@ -47,7 +47,7 @@ COLOURS = {
 }
 
 
-def estimate_pi(n_points: int, seed: int | None = None) -> tuple[float, np.ndarray, np.ndarray, np.ndarray]:
+def estimate_pi(n_points: int, seed: Optional[int] = None) -> Tuple[float, np.ndarray, np.ndarray, np.ndarray]:
     """Estimate pi using Monte Carlo simulation."""
     if seed is not None:
         np.random.seed(seed)
@@ -81,8 +81,8 @@ def create_publication_figure(
     n_points: int = 20000,
     max_convergence_points: int = 500000,
     seed: int = 42,
-    save_path: str | None = 'monte_carlo_pi_publication.png'
-) -> tuple[float, float]:
+    save_path: Optional[str] = 'monte_carlo_pi_publication.png'
+) -> Tuple[float, float]:
     """
     Create publication-quality static visualisation.
     
@@ -271,7 +271,7 @@ def run_realtime_animation(
     n_points: int = 5000,
     batch_size: int = 50,
     interval_ms: int = 50,
-    seed: int | None = None
+    seed: Optional[int] = None
 ) -> None:
     """
     Run real-time animated Monte Carlo simulation.

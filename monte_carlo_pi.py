@@ -1,11 +1,12 @@
 """Monte Carlo Estimation of π using random sampling and geometric probability."""
 
+from typing import Optional, Tuple, List
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
 
-def estimate_pi(n_points: int, seed: int | None = None) -> tuple[float, np.ndarray, np.ndarray, np.ndarray]:
+def estimate_pi(n_points: int, seed: Optional[int] = None) -> Tuple[float, np.ndarray, np.ndarray, np.ndarray]:
     """
     Estimate π using Monte Carlo simulation.
     
@@ -30,7 +31,7 @@ def estimate_pi(n_points: int, seed: int | None = None) -> tuple[float, np.ndarr
     return pi_estimate, x, y, inside
 
 
-def compute_convergence(max_points: int, n_checkpoints: int = 500, seed: int | None = None) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+def compute_convergence(max_points: int, n_checkpoints: int = 500, seed: Optional[int] = None) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
     Compute π estimates at multiple sample sizes to analyze convergence.
     
@@ -82,7 +83,7 @@ def get_accuracy_colour(error: float) -> str:
         return '#ff0000'  # Red - poor
 
 
-def create_visualization(n_points: int = 10000, max_convergence_points: int = 100000, seed: int = 42) -> tuple[float, float]:
+def create_visualization(n_points: int = 10000, max_convergence_points: int = 100000, seed: int = 42) -> Tuple[float, float]:
     """
     Create a comprehensive visualization of the Monte Carlo π estimation.
     
@@ -223,7 +224,7 @@ def create_visualization(n_points: int = 10000, max_convergence_points: int = 10
     return pi_est, error
 
 
-def run_analysis(sample_sizes: list[int] | None = None, seed: int = 42) -> None:
+def run_analysis(sample_sizes: Optional[List[int]] = None, seed: int = 42) -> None:
     """
     Run Monte Carlo analysis for multiple sample sizes and print results.
     
