@@ -7,6 +7,7 @@ A Monte Carlo simulation to estimate π using random sampling and geometric prob
 - Multiple estimators: plain, stratified, antithetic, and low-discrepancy (Halton) sampling
 - Confidence intervals, error metrics, and variance reduction comparisons
 - CLI for one-off simulations, method comparisons, and report bundles
+- Sleek technical noir dashboard for interactive exploration
 - Publication-quality visualizations and real-time animation
 
 ## Quick Start
@@ -38,6 +39,12 @@ python3 pi_lab.py compare --methods plain stratified antithetic halton --samples
 python3 pi_lab.py report --out-dir reports
 ```
 
+### Noir Dashboard (Streamlit)
+
+```bash
+streamlit run pi_dashboard.py
+```
+
 ## Available Scripts
 
 | Script | Description |
@@ -45,6 +52,7 @@ python3 pi_lab.py report --out-dir reports
 | `monte_carlo_pi.py` | Basic simulation with analysis report |
 | `monte_carlo_pi_animated.py` | Publication-quality figures + real-time animation |
 | `pi_lab.py` | CLI for simulation, comparison, and reporting |
+| `pi_dashboard.py` | Sleek technical noir Streamlit UI |
 | `test_monte_carlo.py` | Test suite to verify correctness |
 | `test_pi_estimators.py` | Test suite for the estimation module |
 
@@ -64,6 +72,8 @@ Choose from:
 - Python 3.7+
 - NumPy
 - Matplotlib
+- Plotly
+- Streamlit
 
 ## How It Works
 
